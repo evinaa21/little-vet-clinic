@@ -1,0 +1,52 @@
+name: Puff
+options:
+  bundleIdPrefix: com.puff
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ALWAYS_SEARCH_USER_PATHS: NO
+    CLANG_ENABLE_OBJC_ARC: YES
+    SWIFT_STRICT_CONCURRENCY: minimal
+
+targets:
+  Puff:
+    type: application
+    platform: macOS
+    sources:
+      - path: Puff
+        excludes:
+          - "Info.plist"
+          - "Puff.entitlements"
+      - path: Puff/Info.plist
+        buildPhase: none
+      - path: Puff/Puff.entitlements
+        buildPhase: none
+    postBuildScripts:
+      # macOS stamps files written by sandboxed tools with extended attributes,
+      # and codesign then refuses the bundle with "resource fork, Finder
+      # information, or similar detritus not allowed". Strip them before signing.
+      - name: Strip extended attributes
+        script: /usr/bin/xattr -cr "${TARGET_BUILD_DIR}/${WRAPPER_NAME}" || true
+        basedOnDependencyAnalysis: false
+    settings:
+      base:
+        PRODUCT_NAME: Puff
+        PRODUCT_BUNDLE_IDENTIFIER: com.puff.Puff
+        INFOPLIST_FILE: Puff/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Puff/Puff.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_HARDENED_RUNTIME: YES
+        COMBINE_HIDPI_IMAGES: YES
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        CODE_SIGN_STYLE: Automatic
+        LD_RUNPATH_SEARCH_PATHS:
+          - $(inherited)
+          - "@executable_path/../Frameworks"

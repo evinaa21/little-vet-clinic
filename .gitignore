@@ -1,0 +1,13 @@
+# Build output
+build/
+dist/
+DerivedData/
+
+# Xcode per-user state (the .xcodeproj itself is committed so the project is
+# usable without XcodeGen; regenerate it from project.yml with `xcodegen generate`)
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store
