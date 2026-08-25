@@ -278,6 +278,29 @@
       text-transform: uppercase;
     }
 
+    .security {
+      margin-top: 1rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 8px;
+      background: #fff8e6;
+      border: 1px dashed #e6c878;
+      font-size: 0.76rem;
+      line-height: 1.55;
+    }
+
+    .security strong {
+      display: block;
+      font-family: Fredoka, system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .security p + p {
+      margin-top: 0.45rem;
+    }
+
     .steps {
       list-style: none;
       margin-top: 1.1rem;
@@ -400,9 +423,16 @@
         <ol class="steps">
           <li><span class="n">1</span><span>Open <strong>LittleVetClinic.dmg</strong> from Downloads. A window opens with the app on the left and <strong>Applications</strong> on the right.</span></li>
           <li><span class="n">2</span><span><strong>Drag</strong> <strong>Little Vet Clinic</strong> onto the Applications folder — do not double-click Applications.</span></li>
-          <li><span class="n">3</span><span>Open it from Applications. The first time: <strong>right-click → Open → Open</strong>.</span></li>
+          <li><span class="n">3</span><span>In Applications, <strong>right-click</strong> the app → choose <strong>Open</strong> → click <strong>Open</strong> again in the dialog. Do not double-click the app.</span></li>
           <li><span class="n">4</span><span>Find the paw in the menu bar. Press <strong>⌥ Space</strong> to show or hide.</span></li>
         </ol>
+
+        <div class="security">
+          <strong>“Apple could not verify…” — that’s normal for this free app</strong>
+          <p>Little Vet Clinic isn’t notarised by Apple yet (that needs a paid developer account). macOS blocks <em>double-clicking</em> it the first time.</p>
+          <p><strong>Fix:</strong> In Applications, <strong>right-click</strong> Little Vet Clinic → <strong>Open</strong> → <strong>Open</strong>. After that once, it opens normally.</p>
+          <p>Still stuck? Open <strong>System Settings → Privacy &amp; Security</strong>, scroll down, and click <strong>Open Anyway</strong> if it appears.</p>
+        </div>
       </div>
     </article>
 
