@@ -7,6 +7,7 @@ xcuserdata/
 
 # macOS
 .DS_Store
+!scripts/dmg/DS_Store
 ._*
 
 # Ship artifacts (rebuild with scripts/make_dmg.sh)

@@ -12,3 +12,4 @@ xcuserdata/
 
 # macOS
 .DS_Store
+!LittleVetClinic/scripts/dmg/DS_Store
