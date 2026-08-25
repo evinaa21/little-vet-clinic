@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Little Vet Clinic — a tiny macOS to-do widget</title>
   <meta name="description" content="Your to-do list, run as a tiny veterinary clinic on a floating clipboard. Free for macOS 13+.">
+  <base href="/little-vet-clinic/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
@@ -176,31 +177,51 @@
     .patients {
       display: flex;
       justify-content: center;
-      gap: 0.65rem;
-      margin-bottom: 0.2rem;
+      align-items: flex-start;
+      gap: 1.1rem;
+      margin: 0.4rem 0 0.15rem;
+    }
+
+    .patient {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      min-width: 4.5rem;
     }
 
     .face {
-      width: 42px;
-      height: 42px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
+      overflow: visible;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65), 0 2px 8px rgba(61, 55, 48, 0.08);
       animation: bob 3.2s ease-in-out infinite;
     }
 
     .face img {
-      width: 34px;
-      height: 34px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
+      display: block;
+      pointer-events: none;
+      user-select: none;
     }
 
-    .face:nth-child(1) { background: var(--blush); animation-delay: 0s; }
-    .face:nth-child(2) { background: var(--sage); animation-delay: -1s; }
-    .face:nth-child(3) { background: var(--lavender); animation-delay: -2s; }
+    .patient:nth-child(1) .face { background: var(--blush); animation-delay: 0s; }
+    .patient:nth-child(2) .face { background: var(--sage); animation-delay: -1s; }
+    .patient:nth-child(3) .face { background: var(--lavender); animation-delay: -2s; }
+
+    .patient-label {
+      font-family: Fredoka, system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      color: var(--ink-muted);
+    }
 
     @keyframes bob {
       0%, 100% { transform: translateY(0); }
@@ -348,10 +369,19 @@
         <h1>Little Vet Clinic</h1>
         <p class="tagline">A floating to-do list on a clipboard. Check in tasks as patients, stamp them seen when you're done.</p>
 
-        <div class="patients" aria-hidden="true">
-          <div class="face"><img src="assets/cat_waiting.png" alt="" width="34" height="34"></div>
-          <div class="face"><img src="assets/bear_waiting.png" alt="" width="34" height="34"></div>
-          <div class="face"><img src="assets/bunny_waiting.png" alt="" width="34" height="34"></div>
+        <div class="patients" aria-label="Clinic patients: cat, bear, and bunny">
+          <div class="patient">
+            <div class="face"><img src="assets/cat_waiting.png" alt="Cat patient" width="54" height="54"></div>
+            <span class="patient-label">cat</span>
+          </div>
+          <div class="patient">
+            <div class="face"><img src="assets/bear_waiting.png" alt="Bear patient" width="54" height="54"></div>
+            <span class="patient-label">bear</span>
+          </div>
+          <div class="patient">
+            <div class="face"><img src="assets/bunny_waiting.png" alt="Bunny patient" width="54" height="54"></div>
+            <span class="patient-label">bunny</span>
+          </div>
         </div>
         <p class="caption">cat · bear · bunny on duty</p>
 
