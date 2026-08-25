@@ -1,0 +1,17 @@
+# Xcode / Swift
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# macOS
+.DS_Store
+._*
+
+# Ship artifacts (rebuild with scripts/make_dmg.sh)
+dist/
+
+# Secrets — never commit signing credentials
+*.p12
+*.mobileprovision
+notary-credentials.json

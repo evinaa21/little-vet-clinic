@@ -1,0 +1,6 @@
+{
+  "images" : [
+    { "idiom" : "universal", "filename" : "bunny_waiting.png" }
+  ],
+  "info" : { "author" : "xcode", "version" : 1 }
+}
