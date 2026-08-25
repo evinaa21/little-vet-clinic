@@ -1,6 +1,7 @@
 # Build output
 build/
 dist/
+.build/
 DerivedData/
 
 # Xcode per-user state (the .xcodeproj itself is committed so the project is

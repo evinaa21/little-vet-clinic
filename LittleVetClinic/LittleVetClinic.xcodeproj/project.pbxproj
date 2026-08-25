@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1296B5E31C256AA61549A05F /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C381FA3635619C6479E0F /* FloatingPanel.swift */; };
+		18C429803607917F8322B169 /* PatientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C35F058E325FB782C89FD6 /* PatientStore.swift */; };
+		19139C1F62F37FC722917BD5 /* PatientRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB304F6787967A7E7AA767 /* PatientRowView.swift */; };
+		2C72CD6FFCA2208D8FC1432C /* AppKitBridges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC05ACB98E542C2EA50A60A /* AppKitBridges.swift */; };
+		368AC35D6482E464EEA28D75 /* ClipboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C08B9CD281AC15393A91B2 /* ClipboardView.swift */; };
+		3AD05B1E62C27019C6494742 /* AnimalAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF54E63BA049079F6F7D710 /* AnimalAvatarView.swift */; };
+		4037C7DCFCBEB20B4E273C29 /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4223AA782D12E574AD31D4B /* StatusPill.swift */; };
+		44BB15B3A68857BD06F0EC98 /* RowTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6937C337AF86F2B17F56CE3B /* RowTransitions.swift */; };
+		44E5CDA936F894F44A733F78 /* Clinic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D9D49F26681A8B138CDBB2 /* Clinic.swift */; };
+		464C7CABB4A8778665D0A925 /* PanelPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030624B5BD969E4FC5199133 /* PanelPresentation.swift */; };
+		473D3B7DA15275A858CCF47C /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E80834315152CA5F1B267BB /* Patient.swift */; };
+		50F3381B9E27F9FF390CE788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AFFE6C0B96F69CC2DB689BE /* Assets.xcassets */; };
+		53B915FED81C23B57F90ADBA /* ClinicClosedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE49534CB2E7C4C49695957 /* ClinicClosedView.swift */; };
+		68A6FF3E4423726A253FAE4E /* LittleVetClinicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D458D4DCD7D3C8BB5795EB09 /* LittleVetClinicApp.swift */; };
+		733664A0726E1F5E72F66ED8 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4845622F34E970080F8A98 /* HotKeyManager.swift */; };
+		7DFB844FDA2C9E5BACD61868 /* StampViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F7D69FF4C96E1ED5932E4 /* StampViews.swift */; };
+		8BEB9032D851FCD5A40EC356 /* stamp.wav in Resources */ = {isa = PBXBuildFile; fileRef = B99B289B934CD37B2CF00629 /* stamp.wav */; };
+		A0869917CA2C06C138DCF7FE /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9287D5070480DA54D8805 /* AppSettings.swift */; };
+		A2D554CC7CAEF6477B55D1FC /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051190D39B9158FDE20AD438 /* SoundPlayer.swift */; };
+		D60C65349BCB18AA6E4F9721 /* TallyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F90A480695E65D173E591 /* TallyLine.swift */; };
+		DABB2DE3B0876A753F499CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8258C349273DD6843CEC95E5 /* AppDelegate.swift */; };
+		DD22A346E77F495FE91C3123 /* unroll.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AF29A64243B902E3E0916 /* unroll.wav */; };
+		EE5A84A6ADBA12C984EE0D51 /* PaperParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9916A5414C1E5ABAEEC902F /* PaperParts.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02A9287D5070480DA54D8805 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		030624B5BD969E4FC5199133 /* PanelPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelPresentation.swift; sourceTree = "<group>"; };
+		051190D39B9158FDE20AD438 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		1E80834315152CA5F1B267BB /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		2A0F8554F8B32174DC24D72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3FE62F158C1A8475ECA59B77 /* LittleVetClinic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleVetClinic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C08B9CD281AC15393A91B2 /* ClipboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardView.swift; sourceTree = "<group>"; };
+		4BC05ACB98E542C2EA50A60A /* AppKitBridges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitBridges.swift; sourceTree = "<group>"; };
+		6937C337AF86F2B17F56CE3B /* RowTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTransitions.swift; sourceTree = "<group>"; };
+		6AFFE6C0B96F69CC2DB689BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73D9D49F26681A8B138CDBB2 /* Clinic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clinic.swift; sourceTree = "<group>"; };
+		8258C349273DD6843CEC95E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C2AF29A64243B902E3E0916 /* unroll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = unroll.wav; sourceTree = "<group>"; };
+		8DF54E63BA049079F6F7D710 /* AnimalAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalAvatarView.swift; sourceTree = "<group>"; };
+		8E4845622F34E970080F8A98 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
+		9A7C381FA3635619C6479E0F /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
+		9CE49534CB2E7C4C49695957 /* ClinicClosedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicClosedView.swift; sourceTree = "<group>"; };
+		A8C35F058E325FB782C89FD6 /* PatientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStore.swift; sourceTree = "<group>"; };
+		A9916A5414C1E5ABAEEC902F /* PaperParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperParts.swift; sourceTree = "<group>"; };
+		B99B289B934CD37B2CF00629 /* stamp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stamp.wav; sourceTree = "<group>"; };
+		C05F90A480695E65D173E591 /* TallyLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyLine.swift; sourceTree = "<group>"; };
+		C08D07421A34755EF87315A4 /* LittleVetClinic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleVetClinic.entitlements; sourceTree = "<group>"; };
+		D458D4DCD7D3C8BB5795EB09 /* LittleVetClinicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleVetClinicApp.swift; sourceTree = "<group>"; };
+		DBAB304F6787967A7E7AA767 /* PatientRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRowView.swift; sourceTree = "<group>"; };
+		F4223AA782D12E574AD31D4B /* StatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPill.swift; sourceTree = "<group>"; };
+		F77F7D69FF4C96E1ED5932E4 /* StampViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampViews.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1CA9E65E07CAF09A1E5BE8B2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8258C349273DD6843CEC95E5 /* AppDelegate.swift */,
+				9A7C381FA3635619C6479E0F /* FloatingPanel.swift */,
+				8E4845622F34E970080F8A98 /* HotKeyManager.swift */,
+				D458D4DCD7D3C8BB5795EB09 /* LittleVetClinicApp.swift */,
+				030624B5BD969E4FC5199133 /* PanelPresentation.swift */,
+				051190D39B9158FDE20AD438 /* SoundPlayer.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3D834B01E529BF40CC4508FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FE62F158C1A8475ECA59B77 /* LittleVetClinic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		539DFAAC09E1BF555B328C95 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1CA9E65E07CAF09A1E5BE8B2 /* App */,
+				AADE5D45AC8331D83B1D4636 /* Model */,
+				79BCAE81DF2002C89405422D /* Theme */,
+				E1198BC4FC95D51C520B62C5 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		79BCAE81DF2002C89405422D /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				73D9D49F26681A8B138CDBB2 /* Clinic.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		89800F0F9C466933D27BF9B3 = {
+			isa = PBXGroup;
+			children = (
+				942A6759853F7F1746F51600 /* LittleVetClinic */,
+				3D834B01E529BF40CC4508FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		942A6759853F7F1746F51600 /* LittleVetClinic */ = {
+			isa = PBXGroup;
+			children = (
+				B875129A70B074B5CE71C976 /* Resources */,
+				539DFAAC09E1BF555B328C95 /* Sources */,
+				2A0F8554F8B32174DC24D72A /* Info.plist */,
+				C08D07421A34755EF87315A4 /* LittleVetClinic.entitlements */,
+			);
+			path = LittleVetClinic;
+			sourceTree = "<group>";
+		};
+		AADE5D45AC8331D83B1D4636 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02A9287D5070480DA54D8805 /* AppSettings.swift */,
+				1E80834315152CA5F1B267BB /* Patient.swift */,
+				A8C35F058E325FB782C89FD6 /* PatientStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B875129A70B074B5CE71C976 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AFFE6C0B96F69CC2DB689BE /* Assets.xcassets */,
+				B99B289B934CD37B2CF00629 /* stamp.wav */,
+				8C2AF29A64243B902E3E0916 /* unroll.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1198BC4FC95D51C520B62C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8DF54E63BA049079F6F7D710 /* AnimalAvatarView.swift */,
+				4BC05ACB98E542C2EA50A60A /* AppKitBridges.swift */,
+				9CE49534CB2E7C4C49695957 /* ClinicClosedView.swift */,
+				41C08B9CD281AC15393A91B2 /* ClipboardView.swift */,
+				A9916A5414C1E5ABAEEC902F /* PaperParts.swift */,
+				DBAB304F6787967A7E7AA767 /* PatientRowView.swift */,
+				6937C337AF86F2B17F56CE3B /* RowTransitions.swift */,
+				F77F7D69FF4C96E1ED5932E4 /* StampViews.swift */,
+				F4223AA782D12E574AD31D4B /* StatusPill.swift */,
+				C05F90A480695E65D173E591 /* TallyLine.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54E0B645BFD3C3760891CC0D /* LittleVetClinic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80A643DD589A39AAF8DE46C0 /* Build configuration list for PBXNativeTarget "LittleVetClinic" */;
+			buildPhases = (
+				F69AFB9FB6CCDAEBBB507F42 /* Sources */,
+				84A9277CAE403CC93200B104 /* Resources */,
+				5EC16960F207C842774E7797 /* Strip extended attributes */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittleVetClinic;
+			packageProductDependencies = (
+			);
+			productName = LittleVetClinic;
+			productReference = 3FE62F158C1A8475ECA59B77 /* LittleVetClinic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AACAFD750E2074C585535E69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					54E0B645BFD3C3760891CC0D = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 09C5F39931176CA692F09386 /* Build configuration list for PBXProject "LittleVetClinic" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 89800F0F9C466933D27BF9B3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3D834B01E529BF40CC4508FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54E0B645BFD3C3760891CC0D /* LittleVetClinic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84A9277CAE403CC93200B104 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50F3381B9E27F9FF390CE788 /* Assets.xcassets in Resources */,
+				8BEB9032D851FCD5A40EC356 /* stamp.wav in Resources */,
+				DD22A346E77F495FE91C3123 /* unroll.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EC16960F207C842774E7797 /* Strip extended attributes */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Strip extended attributes";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/bin/xattr -cr \"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\" || true";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F69AFB9FB6CCDAEBBB507F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AD05B1E62C27019C6494742 /* AnimalAvatarView.swift in Sources */,
+				DABB2DE3B0876A753F499CDD /* AppDelegate.swift in Sources */,
+				2C72CD6FFCA2208D8FC1432C /* AppKitBridges.swift in Sources */,
+				A0869917CA2C06C138DCF7FE /* AppSettings.swift in Sources */,
+				44E5CDA936F894F44A733F78 /* Clinic.swift in Sources */,
+				53B915FED81C23B57F90ADBA /* ClinicClosedView.swift in Sources */,
+				368AC35D6482E464EEA28D75 /* ClipboardView.swift in Sources */,
+				1296B5E31C256AA61549A05F /* FloatingPanel.swift in Sources */,
+				733664A0726E1F5E72F66ED8 /* HotKeyManager.swift in Sources */,
+				68A6FF3E4423726A253FAE4E /* LittleVetClinicApp.swift in Sources */,
+				464C7CABB4A8778665D0A925 /* PanelPresentation.swift in Sources */,
+				EE5A84A6ADBA12C984EE0D51 /* PaperParts.swift in Sources */,
+				473D3B7DA15275A858CCF47C /* Patient.swift in Sources */,
+				19139C1F62F37FC722917BD5 /* PatientRowView.swift in Sources */,
+				18C429803607917F8322B169 /* PatientStore.swift in Sources */,
+				44BB15B3A68857BD06F0EC98 /* RowTransitions.swift in Sources */,
+				A2D554CC7CAEF6477B55D1FC /* SoundPlayer.swift in Sources */,
+				7DFB844FDA2C9E5BACD61868 /* StampViews.swift in Sources */,
+				4037C7DCFCBEB20B4E273C29 /* StatusPill.swift in Sources */,
+				D60C65349BCB18AA6E4F9721 /* TallyLine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		93E7C135ED3329468AE56492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LittleVetClinic/LittleVetClinic.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = LittleVetClinic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlevetclinic.LittleVetClinic;
+				PRODUCT_NAME = LittleVetClinic;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A53A74C52731F4997461713A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B758A401BDA008DEBC4D2966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		ECFD3A62009B667CC110DD1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LittleVetClinic/LittleVetClinic.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = LittleVetClinic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlevetclinic.LittleVetClinic;
+				PRODUCT_NAME = LittleVetClinic;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09C5F39931176CA692F09386 /* Build configuration list for PBXProject "LittleVetClinic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A53A74C52731F4997461713A /* Debug */,
+				B758A401BDA008DEBC4D2966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		80A643DD589A39AAF8DE46C0 /* Build configuration list for PBXNativeTarget "LittleVetClinic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECFD3A62009B667CC110DD1A /* Debug */,
+				93E7C135ED3329468AE56492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AACAFD750E2074C585535E69 /* Project object */;
+}

@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Little Vet Clinic: Build",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/build.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Little Vet Clinic: Build & Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/build.sh --run",
+      "group": "none",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Little Vet Clinic: Clean Build & Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/build.sh --clean --run",
+      "group": "none",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Little Vet Clinic: Release Build",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/build.sh --release",
+      "group": "none",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Little Vet Clinic: Make DMG",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/make_dmg.sh",
+      "group": "none",
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
