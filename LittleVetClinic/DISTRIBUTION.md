@@ -76,9 +76,64 @@ Upload **`dist/LittleVetClinic.dmg`** — that URL is your download link.
 
 | Host | Notes |
 |------|--------|
+| **GitHub Pages** | Cute landing page — `evinaa21.github.io/little-vet-clinic` — see below. |
 | **GitHub Releases** | Free. Attach the `.dmg` to a release tag (`v1.0`). |
+| **itch.io** | Nice landing page + download button — see below. |
 | **Cloudflare R2 / S3** | Good if you have your own domain. |
-| **itch.io** | Simple landing page + download button. |
+
+---
+
+## GitHub Pages landing page
+
+A clipboard-themed download page lives in **`docs/index.html`** (repo root).
+
+**Share this link:** `https://evinaa21.github.io/little-vet-clinic/`
+
+### Enable it once
+
+1. Open [Settings → Pages](https://github.com/evinaa21/little-vet-clinic/settings/pages)
+2. **Source:** Deploy from a branch
+3. **Branch:** `main` · **Folder:** `/docs`
+4. Save — live in about a minute
+
+The **Download for Mac** button always points at the latest release `.dmg`.
+
+---
+
+## itch.io (recommended landing page)
+
+Good if you want a clean page like `https://yourname.itch.io/little-vet-clinic` instead of a raw GitHub link.
+
+### One-time setup
+
+1. Create a free account at [itch.io/register](https://itch.io/register)
+2. Install the itch.io upload tool and log in:
+
+```bash
+./scripts/install_itch_butler.sh
+./.bin/butler login
+```
+
+### Publish
+
+```bash
+cd LittleVetClinic
+ITCH_USER=yourname ./scripts/publish_itch.sh
+```
+
+Your page: **`https://yourname.itch.io/little-vet-clinic`**
+
+The first time, open that URL while logged in to itch.io and:
+
+- Set **Kind of project** → **Downloadable**
+- Check **macOS** under Platforms
+- Paste the description from `scripts/itch/page-copy.txt`
+- Set price to **Free**
+- Click **Public**
+
+Future updates: run `./scripts/publish_itch.sh 1.0.1` again with a new version number.
+
+---
 
 ### GitHub Releases example
 

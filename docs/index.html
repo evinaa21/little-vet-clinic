@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Little Vet Clinic — a tiny macOS to-do widget</title>
+  <meta name="description" content="Your to-do list, run as a tiny veterinary clinic on a floating clipboard. Free for macOS 13+.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fbf8f2;
+      --paper-shade: #efeae0;
+      --ink: #3d3730;
+      --ink-muted: #9a9184;
+      --rule: #d9d2c4;
+      --clip-top: #c6d6bb;
+      --clip-bottom: #93ac86;
+      --clip-lip: #7e9772;
+      --blush: #f6d8dd;
+      --sage: #d8e5d3;
+      --lavender: #dfd8ee;
+      --seen: #4c7b47;
+      --stamp: #c06a62;
+      --shadow: rgba(61, 55, 48, 0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Mono", ui-monospace, monospace;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(246, 216, 221, 0.55) 0, transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(223, 216, 238, 0.55) 0, transparent 24%),
+        radial-gradient(circle at 70% 88%, rgba(216, 229, 211, 0.5) 0, transparent 30%),
+        var(--paper);
+      line-height: 1.55;
+    }
+
+    .paws {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .paw {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.12;
+      color: var(--ink-muted);
+      animation: drift 14s ease-in-out infinite;
+    }
+
+    .paw:nth-child(1) { top: 8%; left: 6%; animation-delay: 0s; }
+    .paw:nth-child(2) { top: 22%; right: 10%; animation-delay: -3s; transform: rotate(18deg); }
+    .paw:nth-child(3) { bottom: 16%; left: 12%; animation-delay: -6s; transform: rotate(-12deg); }
+    .paw:nth-child(4) { bottom: 10%; right: 8%; animation-delay: -9s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+      50% { transform: translateY(-10px) rotate(8deg); opacity: 0.16; }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    .clipboard {
+      background: var(--paper);
+      border-radius: 3px 3px 0 0;
+      box-shadow: 0 18px 40px var(--shadow), 0 2px 0 var(--paper-shade);
+      clip-path: polygon(
+        0 0, 100% 0, 100% calc(100% - 10px),
+        98% 100%, 96% calc(100% - 10px), 94% 100%, 92% calc(100% - 10px),
+        90% 100%, 88% calc(100% - 10px), 86% 100%, 84% calc(100% - 10px),
+        82% 100%, 80% calc(100% - 10px), 78% 100%, 76% calc(100% - 10px),
+        74% 100%, 72% calc(100% - 10px), 70% 100%, 68% calc(100% - 10px),
+        66% 100%, 64% calc(100% - 10px), 62% 100%, 60% calc(100% - 10px),
+        58% 100%, 56% calc(100% - 10px), 54% 100%, 52% calc(100% - 10px),
+        50% 100%, 48% calc(100% - 10px), 46% 100%, 44% calc(100% - 10px),
+        42% 100%, 40% calc(100% - 10px), 38% 100%, 36% calc(100% - 10px),
+        34% 100%, 32% calc(100% - 10px), 30% 100%, 28% calc(100% - 10px),
+        26% 100%, 24% calc(100% - 10px), 22% 100%, 20% calc(100% - 10px),
+        18% 100%, 16% calc(100% - 10px), 14% 100%, 12% calc(100% - 10px),
+        10% 100%, 8% calc(100% - 10px), 6% 100%, 4% calc(100% - 10px),
+        2% 100%, 0 calc(100% - 10px)
+      );
+      animation: settle 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes settle {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .clip {
+      height: 28px;
+      margin: -14px auto 0;
+      width: 104px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, var(--clip-top), var(--clip-bottom));
+      box-shadow: 0 3px 0 var(--clip-lip), 0 8px 16px rgba(0,0,0,0.12);
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9px;
+    }
+
+    .clip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.45);
+      pointer-events: none;
+    }
+
+    .rivet {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #f3f1ea;
+      box-shadow: inset 0 0 0 0.6px rgba(111, 134, 100, 0.6);
+    }
+
+    .sheet {
+      padding: 1.6rem 1.5rem 1.8rem;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+
+    h1 {
+      font-family: Fredoka, system-ui, sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.25rem);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      max-width: 34ch;
+      margin: 0 auto 1.1rem;
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px dashed var(--rule);
+      margin: 1rem 0;
+    }
+
+    .patients {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .face {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
+      animation: bob 3.2s ease-in-out infinite;
+    }
+
+    .face:nth-child(1) { background: var(--blush); animation-delay: 0s; }
+    .face:nth-child(2) { background: var(--sage); animation-delay: -1s; }
+    .face:nth-child(3) { background: var(--lavender); animation-delay: -2s; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .download {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: var(--paper);
+      background: linear-gradient(180deg, var(--clip-top), var(--clip-bottom));
+      border: none;
+      border-radius: 8px;
+      padding: 0.95rem 1rem;
+      font-family: Fredoka, system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 0 var(--clip-lip), 0 10px 24px rgba(93, 124, 86, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--clip-lip), 0 14px 28px rgba(93, 124, 86, 0.28);
+    }
+
+    .download:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--clip-lip), 0 6px 16px rgba(93, 124, 86, 0.2);
+    }
+
+    .download:focus-visible {
+      outline: 2px solid var(--seen);
+      outline-offset: 3px;
+    }
+
+    .meta {
+      text-align: center;
+      margin-top: 0.65rem;
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .steps {
+      list-style: none;
+      margin-top: 1.1rem;
+      font-size: 0.78rem;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 0.65rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(217, 210, 196, 0.7);
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .steps .n {
+      flex: 0 0 auto;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 4px;
+      background: var(--paper-shade);
+      color: var(--ink-muted);
+      font-size: 0.65rem;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+    }
+
+    .pill-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .pill {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .pill.wait { background: #ede9e0; color: #938d82; }
+    .pill.seen { background: #d3e7ce; color: var(--seen); }
+
+    .footer {
+      margin-top: 1.6rem;
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    .footer a {
+      color: var(--stamp);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(192, 106, 98, 0.45);
+    }
+
+    .footer a:hover { border-bottom-style: solid; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="paws" aria-hidden="true">
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+  </div>
+
+  <main class="wrap">
+    <div class="clip" aria-hidden="true">
+      <span class="rivet"></span>
+      <span class="rivet"></span>
+    </div>
+
+    <article class="clipboard">
+      <div class="sheet">
+        <p class="eyebrow">Today's patients</p>
+        <h1>Little Vet Clinic</h1>
+        <p class="tagline">A floating to-do list on a clipboard. Check in tasks as patients, stamp them seen when you're done.</p>
+
+        <div class="patients" aria-hidden="true">
+          <div class="face">🐱</div>
+          <div class="face">🐶</div>
+          <div class="face">🐰</div>
+        </div>
+        <p class="caption">dog · cat · bunny on duty</p>
+
+        <hr class="rule">
+
+        <a class="download" id="download" href="https://github.com/evinaa21/little-vet-clinic/releases/latest/download/LittleVetClinic.dmg">
+          Download for Mac
+        </a>
+        <p class="meta">macOS 13+ · free · ~2.5 MB</p>
+
+        <div class="pill-row" aria-hidden="true">
+          <span class="pill wait">waiting</span>
+          <span class="pill seen">seen ♡</span>
+        </div>
+
+        <ol class="steps">
+          <li><span class="n">1</span><span>Open the .dmg and drag <strong>Little Vet Clinic</strong> to Applications.</span></li>
+          <li><span class="n">2</span><span><strong>Right-click → Open → Open</strong> the first time (macOS security).</span></li>
+          <li><span class="n">3</span><span>Find the paw in the menu bar. Press <strong>⌥ Space</strong> to show or hide.</span></li>
+        </ol>
+      </div>
+    </article>
+
+    <p class="footer">
+      <a href="https://github.com/evinaa21/little-vet-clinic">Source on GitHub</a>
+      · made with clipboards &amp; good intentions
+    </p>
+  </main>
+</body>
+</html>
