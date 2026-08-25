@@ -26,6 +26,7 @@ final class PatientStore: ObservableObject {
 
     init() {
         load()
+        repairLegacySeenTimestamps()
         sendYesterdayHome()
         scheduleMidnightRollover()
     }
@@ -64,6 +65,16 @@ final class PatientStore: ObservableObject {
     }
 
     // MARK: Overnight
+
+    /// Back-fill `seenAt` for patients checked off before that field existed.
+    private func repairLegacySeenTimestamps() {
+        var changed = false
+        for index in patients.indices where patients[index].isSeen && patients[index].seenAt == nil {
+            patients[index].seenAt = patients[index].checkedInAt
+            changed = true
+        }
+        if changed { save() }
+    }
 
     /// Patients seen on an earlier day have gone home; the board starts each
     /// morning holding only whoever is still waiting.

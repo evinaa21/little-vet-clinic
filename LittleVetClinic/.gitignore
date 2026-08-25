@@ -1,4 +1,5 @@
 # Xcode / Swift
+.bin/
 .build/
 DerivedData/
 *.xcuserstate
