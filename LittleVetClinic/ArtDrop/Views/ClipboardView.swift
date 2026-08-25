@@ -28,9 +28,6 @@ struct ClipboardView: View {
     /// because the measurement depends only on the (fixed) card width.
     @State private var listHeight: CGFloat = 0
 
-    /// Rows arriving, leaving, and the board closing all ride this one spring.
-    private let boardSpring = Animation.spring(response: 0.4, dampingFraction: 0.78)
-
     var body: some View {
         ZStack(alignment: .top) {
             sheet
@@ -161,13 +158,11 @@ struct ClipboardView: View {
     }
 
     private func commitDraft() {
-        // Row slide-in is driven by `.transition(.patientRow)` on the new row.
-        // Board-level layout (list height, clinic closed) must not animate — see
-        // `.animation(nil, …)` on `content` — or the window resizes every frame
-        // and the constraint engine overflows the stack.
-        var added = false
-        withAnimation(boardSpring) { added = store.checkIn(draft) }
-        guard added else { return }
+        // Same rule as `see()` / `discharge()`: never wrap the store mutation in
+        // `withAnimation`. Adding the first waiting patient after the clinic
+        // closed card was showing changes panel height and animating that resize
+        // overflowed AppKit's constraint engine and killed the app.
+        guard store.checkIn(draft) else { return }
         draft = ""
         fieldFocused = true
     }
@@ -238,6 +233,12 @@ struct ClipboardView: View {
         }
         .animation(nil, value: store.isClosed)
         .animation(nil, value: store.patients.isEmpty)
+        .onChange(of: store.isClosed) { closed in
+            guard !closed else { return }
+            var snap = Transaction()
+            snap.disablesAnimations = true
+            withTransaction(snap) { listHeight = 0 }
+        }
         .onChange(of: store.patients.isEmpty) { isEmpty in
             if isEmpty {
                 var snap = Transaction()

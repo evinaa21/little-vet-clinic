@@ -38,6 +38,21 @@
       "command": "${workspaceFolder}/scripts/make_dmg.sh",
       "group": "none",
       "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Little Vet Clinic: Publish to itch.io",
+      "type": "shell",
+      "command": "ITCH_USER=${input:itchUser} ${workspaceFolder}/scripts/publish_itch.sh",
+      "group": "none",
+      "problemMatcher": "$gcc"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "itchUser",
+      "type": "promptString",
+      "description": "Your itch.io username",
+      "default": "evinaa21"
     }
   ]
 }

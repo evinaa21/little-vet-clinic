@@ -45,8 +45,13 @@ struct Patient: Identifiable, Codable, Equatable {
     var mood: Mood { isSeen ? .seen : .waiting }
 
     /// Seen *today* — yesterday's finished patients go home overnight.
+    ///
+    /// Older saves sometimes marked a patient seen without writing `seenAt`.
+    /// Treating those as seen today stops `sendYesterdayHome()` from wiping the
+    /// whole board on the next launch.
     var wasSeenToday: Bool {
-        guard isSeen, let seenAt else { return false }
-        return Calendar.current.isDateInToday(seenAt)
+        guard isSeen else { return false }
+        let when = seenAt ?? checkedInAt
+        return Calendar.current.isDateInToday(when)
     }
 }

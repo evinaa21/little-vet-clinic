@@ -186,9 +186,16 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-size: 1.35rem;
+      overflow: hidden;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
       animation: bob 3.2s ease-in-out infinite;
+    }
+
+    .face img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     .face:nth-child(1) { background: var(--blush); animation-delay: 0s; }
@@ -342,11 +349,11 @@
         <p class="tagline">A floating to-do list on a clipboard. Check in tasks as patients, stamp them seen when you're done.</p>
 
         <div class="patients" aria-hidden="true">
-          <div class="face">🐱</div>
-          <div class="face">🐶</div>
-          <div class="face">🐰</div>
+          <div class="face"><img src="assets/cat_waiting.png" alt="" width="34" height="34"></div>
+          <div class="face"><img src="assets/bear_waiting.png" alt="" width="34" height="34"></div>
+          <div class="face"><img src="assets/bunny_waiting.png" alt="" width="34" height="34"></div>
         </div>
-        <p class="caption">dog · cat · bunny on duty</p>
+        <p class="caption">cat · bear · bunny on duty</p>
 
         <hr class="rule">
 
